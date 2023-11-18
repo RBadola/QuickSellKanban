@@ -16,7 +16,7 @@ const DataStates = ({ children }) => {
     const getData = async () => {
         const data = await fetch("https://api.quicksell.co/v1/internal/frontend-assignment")
         const res = await data.json()
-        setTickets(res.tickets.sort((a,b)=>b.priority-a.priority))
+        setTickets(res.tickets)
         setUsers(res.users)
         Status(res.tickets)
         Users(res.tickets)       

@@ -6,7 +6,10 @@ import Card from '../Card/Card'
 import { DataContext } from '../Context/DataContext'
 const Group = (props) => {
     const titles = ["No Priority", "Low", "Medium", "High", "urgent"]
-    console.log(props)
+
+    const{tickets} = useContext(DataContext)
+    const sortedTickets = [...tickets].sort((a,b )=> b.priority - a.priority)
+    
     return (
         <div className='card_group'>
             <div className='group_header'>
@@ -28,7 +31,7 @@ const Group = (props) => {
             </div>
             <div className='cards'>
                 {
-                    props?.tickets?.map((item) => {
+                    tickets?.map((item) => {
                         if (item?.status === props?.title || item?.userId === props?.title || item?.priority === props?.title) {
                             return <Card title={item.title} user={item.userId} id={item.id} tag={item.tag[0]} key={item.id} />
                         }
