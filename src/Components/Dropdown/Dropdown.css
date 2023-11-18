@@ -30,4 +30,6 @@
 select{
     padding: 2px;
     background-color: none;
+    border-radius: 5px;
+    width: 100px;
 }

@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useContext, useEffect, useRef, useState, useLayoutEffect } from 'react';
 import "./Dropdown.css"
 import { IoChevronDownOutline } from "react-icons/io5";
 import { BsSliders2 } from "react-icons/bs";
@@ -39,14 +39,15 @@ const Dropdown = () => {
         setTickets(sortedA)
         localStorage.setItem("order",e?.target?.value ||  e)
     }
-
     useEffect(()=>{
         changePriority(localStorage.getItem("order"))
         changeGroup(localStorage.getItem("group"))
     },[])
+
+    
     return (
 
-        <div className='dropdown'>
+        <div className='dropdown' >
             <div onClick={handleToggle} className='display'> <BsSliders2 size={15} /> Display <IoChevronDownOutline />  </div>
             {isOpen &&
                 <div className='Ord'>

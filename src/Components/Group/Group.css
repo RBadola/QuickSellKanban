@@ -3,13 +3,13 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    width: 300px;
+    width: 250px;
     padding-left: 10px;
-    margin: 5px;
+    margin: 15px;
 }
 .group_header{
     display: flex;
-    width: 300px;
+    width: 250px;
     align-items: center;
     justify-content: space-between;
     padding-left: 20px;
@@ -25,7 +25,7 @@
     padding: 4px;
 }
 .cards{
-    width: 300px;
+    width: 250px;
 }
 .titi{
     display: flex;

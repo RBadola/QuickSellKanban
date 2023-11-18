@@ -16,7 +16,7 @@ const DataStates = ({ children }) => {
     const getData = async () => {
         const data = await fetch("https://api.quicksell.co/v1/internal/frontend-assignment")
         const res = await data.json()
-        setTickets(res.tickets)
+        setTickets(res.tickets.sort((a,b)=>b.priority-a.priority))
         setUsers(res.users)
         Status(res.tickets)
         Users(res.tickets)       
@@ -36,8 +36,6 @@ const DataStates = ({ children }) => {
     }
     useEffect(()=>{
         getData()
-    },[])
-    useEffect(()=>{
         localStorage.setItem("order",or)
         localStorage.setItem("group",grp)
     },[])
@@ -51,7 +49,6 @@ const DataStates = ({ children }) => {
         uid.sort()
         setus(uid)
     }
-    // console.log(first)
     return <DataContext.Provider value={{setsort,setor,grp,or,setgrp,sortedData,pr,us,setpr,setus,groupByPriority,groupByStatus,groupByUser,setGBP,setGBS,setGBU,setTickets, tickets,getData, users,status}}>{children}</DataContext.Provider>
 }
 

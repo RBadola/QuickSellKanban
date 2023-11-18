@@ -10,5 +10,39 @@
 .groups{
   display: flex;
   align-items: start;
-
+  justify-content: center ;
+  gap: 5px;
 }
+
+@media (max-width : 500px) {
+  /* 500px se kam */
+  .groups {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: start;
+    justify-content: center;
+  }
+}
+@media (min-width : 501px) and (max-width : 1024px) {
+  /* 500px se jyada */
+  .groups {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: start;
+    justify-content: center;
+    gap : 5px;
+  }
+}
+
+@media (min-width : 1025px) and (max-width : 1500px) {
+  /* 500px se jyada */
+  .groups {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: start;
+    justify-content: center;
+    gap : 5px;
+  }
+}
+
+
