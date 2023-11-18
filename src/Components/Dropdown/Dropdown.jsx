@@ -5,7 +5,7 @@ import { BsSliders2 } from "react-icons/bs";
 import { DataContext } from '../Context/DataContext';
 const Dropdown = () => {
     const [isOpen, setIsOpen] = useState(false);
-    const {setGBP,setgrp,setor,grp,or,setGBS,setGBU,sortByTitle,sortByPriority,tickets,setTickets} = useContext(DataContext)
+    const {setGBP,setsortedTickets,grp,or,setGBS,setGBU,sortByTitle,sortByPriority,tickets,setTickets} = useContext(DataContext)
 
     const handleToggle = () => {
         setIsOpen(!isOpen);
@@ -33,10 +33,10 @@ const Dropdown = () => {
         if ( (e === "priority"|| e?.target?.value ===  "priority")){
             sortedA.sort((a,b)=>b.priority-a.priority)
         } else {
-            sortedA.sort((a,b)=>a.title < b.title ? -1 :1 )
+            sortedA.sort((a,b)=>b.title.localeCompare(a.title) )
             
         }
-        setTickets(sortedA)
+        setsortedTickets(sortedA)
         localStorage.setItem("order",e?.target?.value ||  e)
     }
     useEffect(()=>{

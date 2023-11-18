@@ -4,6 +4,7 @@ import { DataContext } from "./DataContext";
 const DataStates = ({ children }) => {
     
     const [tickets, setTickets] = useState([])
+    const [sortedTickets, setsortedTickets] = useState([])
     const [users, setUsers] = useState([])
     const[status,setstatus] = useState([])
     const[pr,setpr] = useState([0,1,2,3,4])
@@ -49,7 +50,17 @@ const DataStates = ({ children }) => {
         uid.sort()
         setus(uid)
     }
-    return <DataContext.Provider value={{setsort,setor,grp,or,setgrp,sortedData,pr,us,setpr,setus,groupByPriority,groupByStatus,groupByUser,setGBP,setGBS,setGBU,setTickets, tickets,getData, users,status}}>{children}</DataContext.Provider>
+    const defaultsort =()=>{
+        const sortedTicks =[...tickets]
+        const e =localStorage.getItem("order")
+        if ( (e === "priority")){
+            sortedTicks.sort((a,b)=>b.priority-a.priority)
+        } else {
+            sortedTicks.sort((a,b)=>a.title < b.title ? -1 :1 )
+            
+        }
+    }
+    return <DataContext.Provider value={{setsort,sortedTickets,setsortedTickets,setor,grp,or,setgrp,sortedData,pr,us,setpr,setus,groupByPriority,groupByStatus,groupByUser,setGBP,setGBS,setGBU,setTickets, tickets,getData, users,status}}>{children}</DataContext.Provider>
 }
 
 export default DataStates

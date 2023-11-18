@@ -7,8 +7,7 @@ import { DataContext } from '../Context/DataContext'
 const Group = (props) => {
     const titles = ["No Priority", "Low", "Medium", "High", "urgent"]
 
-    const{tickets} = useContext(DataContext)
-    const sortedTickets = [...tickets].sort((a,b )=> b.priority - a.priority)
+    const{tickets, sortedTickets} = useContext(DataContext)
     
     return (
         <div className='card_group'>
@@ -30,7 +29,14 @@ const Group = (props) => {
                 </div>
             </div>
             <div className='cards'>
-                {
+                {localStorage.getItem("order") === "priority" ?
+                    sortedTickets?.map((item) => {
+                        if (item?.status === props?.title || item?.userId === props?.title || item?.priority === props?.title) {
+                            return <Card title={item.title} user={item.userId} id={item.id} tag={item.tag[0]} key={item.id} />
+                        }
+                        return ""
+                    })
+                    :
                     tickets?.map((item) => {
                         if (item?.status === props?.title || item?.userId === props?.title || item?.priority === props?.title) {
                             return <Card title={item.title} user={item.userId} id={item.id} tag={item.tag[0]} key={item.id} />
