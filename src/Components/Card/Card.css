@@ -1,0 +1,36 @@
+.card{
+    max-width: 300px;
+    background-color: white;
+    border-radius: 10px;
+    border:1px solid rgb(200, 200, 200);
+    padding: 10px;
+    margin-bottom: 8px;
+    box-shadow: 0 0 2px 2px rgb(200,200,200);
+}
+.card_id{
+    color: gray;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    }
+.image_placeholder{
+    width: 30px;
+    height: 30px;
+    background-color: brown;
+    border-radius: 50%;
+}
+.card_title{
+    color: black;
+    font-weight: bold;
+}
+.tags{
+    display: flex;
+    align-items: center;
+    color: gray;
+    }
+.tags .tag{
+    border:1px solid rgb(200, 200, 200);
+    border-radius: 5px;
+    padding: 2px;
+    margin-left: 4px;
+}    

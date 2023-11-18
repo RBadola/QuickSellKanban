@@ -1,0 +1,7 @@
+.head{
+    height: 80px;
+    background-color: white;
+    display: flex;
+    align-items: center;
+    padding-left: 40px;
+}
